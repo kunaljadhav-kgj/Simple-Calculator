@@ -1,0 +1,232 @@
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #182230;
+  background: #f3f6fb;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 28px;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(ellipse at 12% 15%, rgba(109, 91, 255, 0.12), transparent 34%),
+    radial-gradient(ellipse at 90% 85%, rgba(61, 185, 173, 0.12), transparent 32%),
+    #f3f6fb;
+}
+
+.home-page {
+  text-align: center;
+}
+
+.welcome-card,
+.calculator-card {
+  width: min(100%, 480px);
+  padding: 44px;
+  border: 1px solid rgba(225, 231, 241, 0.9);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 24px 70px rgba(37, 53, 83, 0.12);
+}
+
+.brand-icon {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  color: #fff;
+  background: linear-gradient(135deg, #7565f5, #5746d8);
+  box-shadow: 0 10px 24px rgba(99, 81, 226, 0.28);
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: #7164df;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+h1 {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(32px, 8vw, 42px);
+  font-weight: 800;
+  letter-spacing: -1.8px;
+  line-height: 1.15;
+}
+
+.home-page h1 span {
+  color: #6555e8;
+}
+
+.intro {
+  margin: 14px 0 28px;
+  color: #7a8495;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.primary-button {
+  min-height: 54px;
+  padding: 0 23px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border-radius: 14px;
+  color: #fff;
+  background: #6555e8;
+  box-shadow: 0 9px 20px rgba(101, 85, 232, 0.24);
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+.primary-button:hover {
+  transform: translateY(-2px);
+  background: #5545d1;
+}
+
+.small-note {
+  margin: 25px 0 0;
+  color: #9aa3b2;
+  font-size: 12px;
+}
+
+.calculator-card {
+  width: min(100%, 500px);
+  padding: 32px 38px 36px;
+}
+
+.back-link {
+  color: #818a9a;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  color: #6555e8;
+}
+
+.calculator-heading {
+  margin: 20px 0 28px;
+  text-align: center;
+}
+
+.small-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 17px;
+  border-radius: 15px;
+  font-size: 26px;
+}
+
+.calculator-heading .intro {
+  margin: 9px 0 0;
+  font-size: 14px;
+}
+
+.input-group {
+  margin: 0 0 17px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #414b5c;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.input-group input {
+  width: 100%;
+  height: 50px;
+  padding: 0 15px;
+  border: 1px solid #e1e6ef;
+  border-radius: 12px;
+  outline: none;
+  color: #182230;
+  background: #fbfcfe;
+  font: inherit;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.input-group input:focus {
+  border-color: #8a7df1;
+  box-shadow: 0 0 0 4px rgba(101, 85, 232, 0.12);
+}
+
+.input-group input::placeholder {
+  color: #b2bac7;
+}
+
+.operations {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 11px;
+}
+
+.operations button {
+  min-height: 48px;
+  border: 1px solid #e7e9f2;
+  border-radius: 12px;
+  color: #414b5c;
+  background: #f8f8fc;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 160ms ease, color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.operations button span {
+  margin-right: 5px;
+  color: #6555e8;
+  font-size: 18px;
+  vertical-align: -1px;
+}
+
+.operations button:hover {
+  transform: translateY(-1px);
+  border-color: #c9c2fb;
+  color: #5746d8;
+  background: #f1efff;
+}
+
+.result {
+  min-height: 58px;
+  margin: 22px 0 0;
+  padding: 17px;
+  border-radius: 12px;
+  color: #6555e8;
+  background: #f2f0ff;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 520px) {
+  body {
+    padding: 18px;
+  }
+
+  .welcome-card,
+  .calculator-card {
+    padding: 30px 23px;
+    border-radius: 22px;
+  }
+}
