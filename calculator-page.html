@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="stylec.css">
+  </head>
+  <body class="calculator-page">
+    <main class="calculator-card">
+      <a class="back-link" href="indexc.html">← Home</a>
+      <div class="calculator-heading">
+        <div class="brand-icon small-icon" aria-hidden="true">＋</div>
+        <p class="eyebrow">YOUR EVERYDAY TOOL</p>
+        <h1>Calculator</h1>
+        <p class="intro">Enter two numbers and choose an operation.</p>
+      </div>
+
+      <div class="input-group">
+        <label for="firstNo">First number</label>
+        <input type="number" id="firstNo" placeholder="e.g. 24" step="any">
+      </div>
+      <div class="input-group">
+        <label for="secondNo">Second number</label>
+        <input type="number" id="secondNo" placeholder="e.g. 6" step="any">
+      </div>
+
+      <div class="operations" aria-label="Calculator operations">
+        <button type="button" onclick="add()"><span>＋</span> Add</button>
+        <button type="button" onclick="subtract()"><span>−</span> Subtract</button>
+        <button type="button" onclick="multiply()"><span>×</span> Multiply</button>
+        <button type="button" onclick="divide()"><span>÷</span> Divide</button>
+        <button type="button" onclick="reminder()"><span>%</span> Remainder</button>
+        <button type="button" onclick="factorial()"><span>!</span> Factorial</button>
+      </div>
+
+      <p id="result" class="result" aria-live="polite">Your result will appear here</p>
+    </main>
+
+    <script>
+      function getNumbers() {
+        const first = document.getElementById('firstNo').value;
+        const second = document.getElementById('secondNo').value;
+
+        if (first === '' || second === '') {
+          document.getElementById('result').textContent = 'Enter both numbers first.';
+          return null;
+        }
+
+        const numbers = [Number(first), Number(second)];
+        if (!numbers.every(Number.isFinite)) {
+          document.getElementById('result').textContent = 'Enter valid, finite numbers.';
+          return null;
+        }
+
+        return numbers;
+      }
+
+      function showResult(value) {
+        document.getElementById('result').textContent = Number.isFinite(value)
+          ? 'Result: ' + value
+          : 'The result is outside the supported numeric range.';
+      }
+
+      function add() {
+        const numbers = getNumbers();
+        if (numbers) showResult(numbers[0] + numbers[1]);
+      }
+
+      function subtract() {
+        const numbers = getNumbers();
+        if (numbers) showResult(numbers[0] - numbers[1]);
+      }
+
+      function multiply() {
+        const numbers = getNumbers();
+        if (numbers) showResult(numbers[0] * numbers[1]);
+      }
+      function divide() {
+        const numbers = getNumbers();
+        if (!numbers) return;
+        if (numbers[1] === 0) {
+          document.getElementById('result').textContent = 'Cannot divide by zero.';
+          return;
+        }
+        showResult(numbers[0] / numbers[1]);
+      }
+
+      function reminder() {
+        const numbers = getNumbers();
+        if (!numbers) return;
+        if (numbers[1] === 0) {
+          document.getElementById('result').textContent = 'Cannot find a remainder with a divisor of zero.';
+          return;
+        }
+        showResult(numbers[0] % numbers[1]);
+      }
+
+      function factorial() {
+        const value = document.getElementById('firstNo').value;
+        if (value === '') {
+          document.getElementById('result').textContent = 'Enter the first number first.';
+          return;
+        }
+
+        const number = Number(value);
+        if (!Number.isFinite(number) || !Number.isInteger(number) || number < 0) {
+          document.getElementById('result').textContent = 'Factorial needs a non-negative whole number.';
+          return;
+        }
+        if (number > 170) {
+          document.getElementById('result').textContent = 'Factorial is limited to 170 to keep the result finite.';
+          return;
+        }
+
+        let result = 1;
+        for (let i = 2; i <= number; i++) result *= i;
+        document.getElementById('result').textContent = 'Result: ' + result;
+      }
+    </script>
+  </body>
+</html>
